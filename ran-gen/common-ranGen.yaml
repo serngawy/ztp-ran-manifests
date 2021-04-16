@@ -1,0 +1,43 @@
+---
+apiVersion: ranPolicyGenerator/v1
+kind: RanGenTemplate
+metadata:
+  # The name will be used to generate the placementBinding and placementRule names as {name}-placementBinding and {name}-placementRule
+  name: "common-policies"
+  namespace: "policy-template"
+  labels:
+    common: true
+    groupName: "N/A"
+    siteName: "N/A"
+    mcp: "N/A"
+sourceFiles:
+  # Create operators policies that will be installed in all clusters
+  - fileName: SriovSubscription
+    name: "N/A"
+  - fileName: SriovSubscriptionNS
+    name: "N/A"
+  - fileName: SriovSubscriptionOperGroup
+    name: "N/A"
+  - fileName: PtpSubscription
+    name: "N/A"
+  - fileName: PtpSubscriptionNS
+    name: "N/A"
+  - fileName: PtpSubscriptionOperGroup
+    name: "N/A"
+  - fileName: PaoSubscription
+    name: "N/A"
+    spec:
+    # Changing the channel value will upgrade/downgrade the operator installed version.
+      channel: "4.8"
+  - fileName: PaoSubscriptionNS
+    name: "N/A"
+  - fileName: PaoSubscriptionOperGroup
+    name: "N/A"
+  - fileName: PaoSubscriptionCatalogSource
+    name: "N/A"
+  - fileName: ClusterLogSubscriptionNS
+    name: "N/A"
+  - fileName: ClusterLogSubscription
+    name: "N/A"
+  - fileName: ClusterLogSubscriptionOperGroup
+    name: "N/A"

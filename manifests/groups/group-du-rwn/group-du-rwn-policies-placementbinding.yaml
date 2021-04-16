@@ -1,0 +1,19 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+    name: group-du-rwn-policies-placementbinding
+    namespace: groups-ran-subscriptions
+placementRef:
+    name: group-du-rwn-policies-placementrule
+    kind: PlacementRule
+    apiGroup: apps.open-cluster-management.io
+subjects:
+    - name: group-du-rwn-machineconfigpool-node-du
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-rwn-autolabeldeployment-autoruler
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-rwn-autolabelconfigmap-autorules
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io

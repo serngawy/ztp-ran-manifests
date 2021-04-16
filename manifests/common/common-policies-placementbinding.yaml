@@ -1,0 +1,49 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+    name: common-policies-placementbinding
+    namespace: common-ran-subscriptions
+placementRef:
+    name: common-policies-placementrule
+    kind: PlacementRule
+    apiGroup: apps.open-cluster-management.io
+subjects:
+    - name: common-sriovsubscription-sriov-network-operator-subscription
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-sriovsubscriptionns-openshift-sriov-network-operator
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-sriovsubscriptionopergroup-sriov-network-operators
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-ptpsubscription-ptp-operator-subscription
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-ptpsubscriptionns-openshift-ptp
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-ptpsubscriptionopergroup-ptp-operators
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosubscription-performance-addon-operator
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosubscriptionns-openshift-performance-addon-operator
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosubscriptionopergroup-performance-addon-operator
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosubscriptioncatalogsource-performance-addon-operator
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-clusterlogsubscriptionns-openshift-logging
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-clusterlogsubscription-cluster-logging
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-clusterlogsubscriptionopergroup-cluster-logging
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io

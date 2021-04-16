@@ -1,0 +1,10 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+    name: group-du-sno-policies-placementrule
+    namespace: groups-ran-subscriptions
+spec:
+    clusterselector:
+        matchExpressions:
+            key: group-du-sno
+            operator: Exists

@@ -1,0 +1,31 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+    name: group-du-policies-placementbinding
+    namespace: groups-ran-subscriptions
+placementRef:
+    name: group-du-policies-placementrule
+    kind: PlacementRule
+    apiGroup: apps.open-cluster-management.io
+subjects:
+    - name: group-du-autolabelns-node-autolabeler
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-autolabelclusterrolebinding-autolabeller-admin-binding
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-sriovoperatorconfig-default
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-machineconfigsctp-load-sctp-module
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-machineconfigcontainermountns-container-mount-namespace
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-machineconfigdisablechronyd-disable-chronyd
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: group-du-ptpconfigslave-group-du-ptp-slave
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io

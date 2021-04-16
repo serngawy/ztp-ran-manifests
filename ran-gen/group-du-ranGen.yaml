@@ -1,0 +1,35 @@
+---
+apiVersion: ranPolicyGenerator/v1
+kind: RanGenTemplate
+metadata:
+  # The name will be used to generate the placementBinding and placementRule names as {name}-placementBinding and {name}-placementRule
+  name: "group-du-policies"
+  namespace: "policy-template"
+  labels:
+    common: false
+    groupName: "group-du"
+    siteName: "N/A"
+    mcp: "node-du"
+# sourceFiles.fileName values should be same as file name in the sourcePolicies dir without .yaml extension
+sourceFiles:
+  - fileName: AutolabelNS
+    name: "N/A"
+  - fileName: AutolabelClusterRoleBinding
+    name: "N/A"
+  - fileName: SriovOperatorConfig
+    name: "N/A"
+  - fileName: MachineConfigSctp
+    name: "N/A"
+  - fileName: MachineConfigContainerMountNS
+    name: "N/A"
+  - fileName: MachineConfigDisableChronyd
+    name: "N/A"
+  - fileName: PtpConfigSlave
+    name: "group-du-ptp-slave"
+    spec:
+      profile:
+      - name: "slave"
+        interface: "ens5f0"
+        ptp4lOpts: "-2 -s --summary_interval -4"
+        phc2sysOpts: "-a -r -n 24"
+

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autoruler
+  namespace: node-autolabeler
+  labels:
+    app: autoruler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: autoruler
+  template:
+    metadata:
+      labels:
+        app: autoruler
+    spec:
+      tolerations: $tolerations
+      containers:
+      - name: autosigner
+        image: quay.io/karmab/autosigner:latest
+      - name: autolabeller
+        image: quay.io/karmab/autolabeller:latest

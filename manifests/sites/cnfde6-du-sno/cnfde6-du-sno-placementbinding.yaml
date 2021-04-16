@@ -1,0 +1,25 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+    name: cnfde6-du-sno-placementbinding
+    namespace: sites-ran-subscriptions
+placementRef:
+    name: cnfde6-du-sno-placementrule
+    kind: PlacementRule
+    apiGroup: apps.open-cluster-management.io
+subjects:
+    - name: cnfde6-du-sno-sriovnetwork-sriov-nw-du-fh
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: cnfde6-du-sno-sriovnetworknodepolicy-sriov-nnp-du-fh
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: cnfde6-du-sno-sriovnetwork-sriov-nw-du-mh
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: cnfde6-du-sno-sriovnetworknodepolicy-sriov-nnp-du-mh
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: cnfde6-du-sno-performanceprofile-du-sno-perfprofile
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io

@@ -1,9 +1,0 @@
-apiVersion: apps.open-cluster-management.io/v1
-kind: PlacementRule
-metadata:
-  name: placement-cnf-cu-du-site-autolabeler
-  namespace: sites-ran-subscriptions
-spec:
-  clusterSelector:
-    matchExpressions:
-      - {key: name, operator: In, values: ["cnf-cu-du-site-cluster"]}
