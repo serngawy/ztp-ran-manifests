@@ -32,7 +32,7 @@ spec:
                             rules1.properties: |
                                 name: cnfde*
                                 labels:
-                                - node-role.kubernetes.io/node-du
+                                - node-role.kubernetes.io/master
                         kind: ConfigMap
                         metadata:
                             name: autorules

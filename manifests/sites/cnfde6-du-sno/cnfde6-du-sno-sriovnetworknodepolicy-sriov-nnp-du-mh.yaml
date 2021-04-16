@@ -39,7 +39,7 @@ spec:
                                 pfNames:
                                     - ens7f0
                             nodeSelector:
-                                node-role.kubernetes.io/node-du: ""
+                                node-role.kubernetes.io/master: ""
                             numVfs: 8
                             priority: 10
                             resourceName: du_mh

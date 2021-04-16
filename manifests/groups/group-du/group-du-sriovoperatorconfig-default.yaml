@@ -34,6 +34,6 @@ spec:
                             namespace: openshift-sriov-network-operator
                         spec:
                             configDaemonNodeSelector:
-                                node-role.kubernetes.io/node-du: ""
+                                node-role.kubernetes.io/master: ""
                             enableInjector: true
                             enableOperatorWebhook: true

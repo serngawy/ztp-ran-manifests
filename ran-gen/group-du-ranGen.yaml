@@ -9,7 +9,7 @@ metadata:
     common: false
     groupName: "group-du"
     siteName: "N/A"
-    mcp: "node-du"
+    mcp: "master"
 # sourceFiles.fileName values should be same as file name in the sourcePolicies dir without .yaml extension
 sourceFiles:
   - fileName: AutolabelNS

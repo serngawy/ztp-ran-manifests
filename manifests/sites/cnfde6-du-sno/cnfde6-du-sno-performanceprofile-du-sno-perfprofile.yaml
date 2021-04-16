@@ -49,7 +49,7 @@ spec:
                                     - count: 32
                                       size: 1G
                             nodeSelector:
-                                node-role.kubernetes.io/node-du: ""
+                                node-role.kubernetes.io/master: ""
                             numa:
                                 topologyPolicy: restricted
                             realTimeKernel:

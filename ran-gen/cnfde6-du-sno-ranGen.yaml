@@ -9,7 +9,7 @@ metadata:
     common: false
     groupName: "N/A"
     siteName: "cnfde6-du-sno"
-    mcp: "node-du"
+    mcp: "master"
 sourceFiles:
   - fileName: SriovNetwork
     name: "sriov-nw-du-fh"

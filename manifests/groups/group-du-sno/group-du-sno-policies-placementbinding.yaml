@@ -8,9 +8,6 @@ placementRef:
     kind: PlacementRule
     apiGroup: apps.open-cluster-management.io
 subjects:
-    - name: group-du-sno-machineconfigpoolsno-node-du
-      kind: Policy
-      apiGroup: policy.open-cluster-management.io
     - name: group-du-sno-autolabeldeployment-autoruler
       kind: Policy
       apiGroup: policy.open-cluster-management.io

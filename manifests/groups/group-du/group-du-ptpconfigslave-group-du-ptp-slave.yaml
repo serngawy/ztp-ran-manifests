@@ -141,6 +141,6 @@ spec:
                                   ptp4lOpts: -2 -s --summary_interval -4
                             recommend:
                                 - match:
-                                    - nodeLabel: node-role.kubernetes.io/node-du
+                                    - nodeLabel: node-role.kubernetes.io/master
                                   priority: 4
                                   profile: slave

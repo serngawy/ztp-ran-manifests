@@ -31,7 +31,7 @@ spec:
                         kind: MachineConfig
                         metadata:
                             labels:
-                                machineconfiguration.openshift.io/role: node-du
+                                machineconfiguration.openshift.io/role: master
                             name: load-sctp-module
                         spec:
                             config:
