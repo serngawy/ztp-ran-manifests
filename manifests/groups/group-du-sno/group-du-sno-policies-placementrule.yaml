@@ -6,5 +6,5 @@ metadata:
 spec:
     clusterselector:
         matchExpressions:
-            key: group-du-sno
-            operator: Exists
+            - key: group-du-sno
+              operator: Exists
