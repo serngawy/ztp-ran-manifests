@@ -16,7 +16,7 @@ sourceFiles:
     spec:
       resourceName: du_fh
       vlan: 140
-  - fileName: SriovNetworkNodePolicy
+  - fileName: SriovNetworkNode
     name: "sriov-nnp-du-fh"
     spec:
       deviceType: netdevice
@@ -31,7 +31,7 @@ sourceFiles:
     spec:
       resourceName: du_mh
       vlan: 150
-  - fileName: SriovNetworkNodePolicy
+  - fileName: SriovNetworkNode
     name: "sriov-nnp-du-mh"
     spec:
       deviceType: vfio-pci
@@ -41,7 +41,7 @@ sourceFiles:
       numVfs: 8
       priority: 10
       resourceName: du_mh
-  - fileName: PerformanceProfile
+  - fileName: PerfProfile
     name: "du-sno-PerfProfile"
     spec:
       # ex: overriding the additionalKernelArgs values exist in the source policy file PerformanceProfile

@@ -1,0 +1,49 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+    name: common-policies-placementbinding
+    namespace: common-ran-subscriptions
+placementRef:
+    name: common-policies-placementrule
+    kind: PlacementRule
+    apiGroup: apps.open-cluster-management.io
+subjects:
+    - name: common-sriovsub
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-sriovsubns
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-sriovsubopergroup
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-ptpsub
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-ptpsubns
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-ptpsubopergroup
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosub
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosubns
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosubopergroup
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-paosubcatalogsource
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-clusterlogsubns
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-clusterlogsub
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io
+    - name: common-clusterlogsubopergroup
+      kind: Policy
+      apiGroup: policy.open-cluster-management.io

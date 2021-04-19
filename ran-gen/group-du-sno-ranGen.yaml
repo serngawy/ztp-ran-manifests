@@ -16,7 +16,7 @@ sourceFiles:
 #    # For MCP policy name is used to deifne the role name and node label.
 #    # The name will be used as the NodeSelector value in other policies that is should be applied only for this MachineConfigPool
 #    name: "node-du"
-  - fileName: AutolabelDeployment
+  - fileName: AutolabelDeploy
     name: "N/A"
   - fileName: AutolabelConfigMap
     name: "N/A"

@@ -1,0 +1,39 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+    name: common-clusterlogsub-policy
+    namespace: common-ran-subscriptions
+    annotations:
+        policy.open-cluster-management.io/categories: CM Configuration Management
+        policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
+        policy.open-cluster-management.io/standards: NIST SP 800-53
+spec:
+    remediationAction: enforce
+    disabled: false
+    policy-templates:
+        - objectDefinition:
+            apiVersion: policy.open-cluster-management.io/v1
+            kind: ConfigurationPolicy
+            metadata:
+                name: common-clusterlogsub
+            spec:
+                remediationAction: enforce
+                severity: low
+                namespaceselector:
+                    exclude:
+                        - kube-*
+                    include:
+                        - '*'
+                object-templates:
+                    - complianceType: musthave
+                      objectDefinition:
+                        apiVersion: operators.coreos.com/v1alpha1
+                        kind: Subscription
+                        metadata:
+                            name: cluster-logging
+                            namespace: openshift-logging
+                        spec:
+                            channel: "5.0"
+                            name: cluster-logging
+                            source: redhat-operators
+                            sourceNamespace: openshift-marketplace

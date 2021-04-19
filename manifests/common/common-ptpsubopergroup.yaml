@@ -1,0 +1,37 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+    name: common-ptpsubopergroup-policy
+    namespace: common-ran-subscriptions
+    annotations:
+        policy.open-cluster-management.io/categories: CM Configuration Management
+        policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
+        policy.open-cluster-management.io/standards: NIST SP 800-53
+spec:
+    remediationAction: enforce
+    disabled: false
+    policy-templates:
+        - objectDefinition:
+            apiVersion: policy.open-cluster-management.io/v1
+            kind: ConfigurationPolicy
+            metadata:
+                name: common-ptpsubopergroup
+            spec:
+                remediationAction: enforce
+                severity: low
+                namespaceselector:
+                    exclude:
+                        - kube-*
+                    include:
+                        - '*'
+                object-templates:
+                    - complianceType: musthave
+                      objectDefinition:
+                        apiVersion: operators.coreos.com/v1
+                        kind: OperatorGroup
+                        metadata:
+                            name: ptp-operators
+                            namespace: openshift-ptp
+                        spec:
+                            targetNamespaces:
+                                - openshift-ptp
