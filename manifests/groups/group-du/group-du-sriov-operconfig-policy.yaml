@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: common-clusterlogsub-policy
-    namespace: common-ran-subscriptions
+    name: group-du-sriov-operconfig-policy
+    namespace: groups-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: common-clusterlogsub
+                name: group-du-sriov-operconfig-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -27,13 +27,13 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
-                        apiVersion: operators.coreos.com/v1alpha1
-                        kind: Subscription
+                        apiVersion: sriovnetwork.openshift.io/v1
+                        kind: SriovOperatorConfig
                         metadata:
-                            name: cluster-logging
-                            namespace: openshift-logging
+                            name: default
+                            namespace: openshift-sriov-network-operator
                         spec:
-                            channel: "5.0"
-                            name: cluster-logging
-                            source: redhat-operators
-                            sourceNamespace: openshift-marketplace
+                            configDaemonNodeSelector:
+                                node-role.kubernetes.io/master: ""
+                            enableInjector: true
+                            enableOperatorWebhook: true

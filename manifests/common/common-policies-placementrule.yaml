@@ -2,7 +2,7 @@ apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
     name: common-policies-placementrule
-    namespace: common-ran-subscriptions
+    namespace: common-ran-sub
 spec:
     clusterselector:
         matchExpressions:

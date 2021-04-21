@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: cnfde6-du-sno-sriovnetwork-policy
-    namespace: sites-ran-subscriptions
+    name: common-sriov-sub-ns-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: cnfde6-du-sno-sriovnetwork
+                name: common-sriov-sub-ns-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -27,12 +27,9 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
-                        apiVersion: sriovnetwork.openshift.io/v1
-                        kind: SriovNetwork
+                        apiVersion: v1
+                        kind: Namespace
                         metadata:
-                            name: sriov-nw-du-mh
-                            namespace: openshift-sriov-network-operator
-                        spec:
-                            networkNamespace: openshift-sriov-network-operator
-                            resourceName: du_mh
-                            vlan: 150
+                            labels:
+                                openshift.io/run-level: "1"
+                            name: openshift-sriov-network-operator

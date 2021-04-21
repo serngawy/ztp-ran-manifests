@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: common-paosubcatalogsource-policy
-    namespace: common-ran-subscriptions
+    name: common-pao-sub-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: common-paosubcatalogsource
+                name: common-pao-sub-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -28,15 +28,12 @@ spec:
                     - complianceType: musthave
                       objectDefinition:
                         apiVersion: operators.coreos.com/v1alpha1
-                        kind: CatalogSource
+                        kind: Subscription
                         metadata:
                             name: performance-addon-operator
-                            namespace: openshift-marketplace
+                            namespace: openshift-performance-addon-operator
                         spec:
-                            displayName: Openshift Performance Addon Operator
-                            icon:
-                                base64data: ""
-                                mediatype: ""
-                            image: quay.io/openshift-kni/performance-addon-operator-index:4.8-snapshot
-                            publisher: Red Hat
-                            sourceType: grpc
+                            channel: "4.8"
+                            name: performance-addon-operator
+                            source: performance-addon-operator
+                            sourceNamespace: openshift-marketplace

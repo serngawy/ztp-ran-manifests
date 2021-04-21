@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: cnfde6-du-sno-perfprofile-policy
-    namespace: sites-ran-subscriptions
+    name: cnfde6-du-sno-perf-policy
+    namespace: sites-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: cnfde6-du-sno-perfprofile
+                name: cnfde6-du-sno-perf-policy-config
             spec:
                 remediationAction: enforce
                 severity: low

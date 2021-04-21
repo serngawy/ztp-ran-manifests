@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: group-du-sriovoperconfig-policy
-    namespace: groups-ran-subscriptions
+    name: common-sriov-sub-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: group-du-sriovoperconfig
+                name: common-sriov-sub-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -27,13 +27,13 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
-                        apiVersion: sriovnetwork.openshift.io/v1
-                        kind: SriovOperatorConfig
+                        apiVersion: operators.coreos.com/v1alpha1
+                        kind: Subscription
                         metadata:
-                            name: default
+                            name: sriov-network-operator-subscription
                             namespace: openshift-sriov-network-operator
                         spec:
-                            configDaemonNodeSelector:
-                                node-role.kubernetes.io/master: ""
-                            enableInjector: true
-                            enableOperatorWebhook: true
+                            channel: "4.7"
+                            name: sriov-network-operator
+                            source: redhat-operators
+                            sourceNamespace: openshift-marketplace

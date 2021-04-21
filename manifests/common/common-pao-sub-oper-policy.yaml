@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: common-clusterlogsubopergroup-policy
-    namespace: common-ran-subscriptions
+    name: common-pao-sub-oper-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: common-clusterlogsubopergroup
+                name: common-pao-sub-oper-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -30,8 +30,5 @@ spec:
                         apiVersion: operators.coreos.com/v1
                         kind: OperatorGroup
                         metadata:
-                            name: cluster-logging
-                            namespace: openshift-logging
-                        spec:
-                            targetNamespaces:
-                                - openshift-logging
+                            name: performance-addon-operator
+                            namespace: openshift-performance-addon-operator

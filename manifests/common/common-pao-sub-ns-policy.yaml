@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: common-paosub-policy
-    namespace: common-ran-subscriptions
+    name: common-pao-sub-ns-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: common-paosub
+                name: common-pao-sub-ns-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -27,13 +27,10 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
-                        apiVersion: operators.coreos.com/v1alpha1
-                        kind: Subscription
+                        apiVersion: v1
+                        kind: Namespace
                         metadata:
-                            name: performance-addon-operator
-                            namespace: openshift-performance-addon-operator
-                        spec:
-                            channel: "4.8"
-                            name: performance-addon-operator
-                            source: performance-addon-operator
-                            sourceNamespace: openshift-marketplace
+                            labels:
+                                openshift.io/cluster-monitoring: "true"
+                            name: openshift-performance-addon-operator
+                        spec: {}

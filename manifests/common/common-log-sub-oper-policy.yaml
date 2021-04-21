@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: common-clusterlogsubns-policy
-    namespace: common-ran-subscriptions
+    name: common-log-sub-oper-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: common-clusterlogsubns
+                name: common-log-sub-oper-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -27,7 +27,11 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
-                        apiVersion: v1
-                        kind: Namespace
+                        apiVersion: operators.coreos.com/v1
+                        kind: OperatorGroup
                         metadata:
-                            name: openshift-logging
+                            name: cluster-logging
+                            namespace: openshift-logging
+                        spec:
+                            targetNamespaces:
+                                - openshift-logging

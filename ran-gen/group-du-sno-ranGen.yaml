@@ -11,18 +11,18 @@ metadata:
     siteName: "N/A"
     # In this example we used the MCP=worker-du for group-du-sno to let the clusters that will be under group-du-sno also have the policies for group-du
     mcp: "master"
-sourceFiles:
+#sourceFiles:
 #  - fileName: MachineConfigPoolSNO
 #    # For MCP policy name is used to deifne the role name and node label.
 #    # The name will be used as the NodeSelector value in other policies that is should be applied only for this MachineConfigPool
 #    name: "node-du"
-  - fileName: AutolabelDeploy
-    name: "N/A"
-  - fileName: AutolabelConfigMap
-    name: "N/A"
-    data:
-     rules1.properties: |
-       name: cnfde*
-       labels:
-       - node-role.kubernetes.io/master
+#  - fileName: AutolabelDeploy
+#    policyName: "label-deploy-policy"
+#  - fileName: AutolabelConfigMap
+#    policyName: "label-configmap-policy"
+#    data:
+#     rules1.properties: |
+#       name: cnfde*
+#       labels:
+#       - node-role.kubernetes.io/master
 

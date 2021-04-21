@@ -2,48 +2,48 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
     name: common-policies-placementbinding
-    namespace: common-ran-subscriptions
+    namespace: common-ran-sub
 placementRef:
     name: common-policies-placementrule
     kind: PlacementRule
     apiGroup: apps.open-cluster-management.io
 subjects:
-    - name: common-sriovsub
+    - name: common-sriov-sub-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-sriovsubns
+    - name: common-sriov-sub-ns-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-sriovsubopergroup
+    - name: common-sriov-sub-oper-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-ptpsub
+    - name: common-ptp-sub-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-ptpsubns
+    - name: common-ptp-sub-ns-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-ptpsubopergroup
+    - name: common-ptp-sub-oper-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-paosub
+    - name: common-pao-sub-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-paosubns
+    - name: common-pao-sub-ns-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-paosubopergroup
+    - name: common-pao-sub-oper-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-paosubcatalogsource
+    - name: common-pao-sub-catalog-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-clusterlogsubns
+    - name: common-log-sub-ns-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-clusterlogsub
+    - name: common-log-sub-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-clusterlogsubopergroup
+    - name: common-log-sub-oper-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io

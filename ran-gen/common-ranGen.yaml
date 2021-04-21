@@ -12,32 +12,32 @@ metadata:
     mcp: "N/A"
 sourceFiles:
   # Create operators policies that will be installed in all clusters
-  - fileName: SriovSub
-    name: "N/A"
-  - fileName: SriovSubNS
-    name: "N/A"
-  - fileName: SriovSubOperGroup
-    name: "N/A"
-  - fileName: PtpSub
-    name: "N/A"
-  - fileName: PtpSubNS
-    name: "N/A"
-  - fileName: PtpSubOperGroup
-    name: "N/A"
-  - fileName: PaoSub
-    name: "N/A"
+  - fileName: SriovSubscription
+    policyName: "sriov-sub-policy"
+  - fileName: SriovSubscriptionNS
+    policyName: "sriov-sub-ns-policy"
+  - fileName: SriovSubscriptionOperGroup
+    policyName: "sriov-sub-oper-policy"
+  - fileName: PtpSubscription
+    policyName: "ptp-sub-policy"
+  - fileName: PtpSubscriptionNS
+    policyName: "ptp-sub-ns-policy"
+  - fileName: PtpSubscriptionOperGroup
+    policyName: "ptp-sub-oper-policy"
+  - fileName: PaoSubscription
+    policyName: "pao-sub-policy"
     spec:
     # Changing the channel value will upgrade/downgrade the operator installed version.
       channel: "4.8"
-  - fileName: PaoSubNS
-    name: "N/A"
-  - fileName: PaoSubOperGroup
-    name: "N/A"
-  - fileName: PaoSubCatalogSource
-    name: "N/A"
-  - fileName: ClusterLogSubNS
-    name: "N/A"
-  - fileName: ClusterLogSub
-    name: "N/A"
-  - fileName: ClusterLogSubOperGroup
-    name: "N/A"
+  - fileName: PaoSubscriptionNS
+    policyName: "pao-sub-ns-policy"
+  - fileName: PaoSubscriptionOperGroup
+    policyName: "pao-sub-oper-policy"
+  - fileName: PaoSubscriptionCatalogSource
+    policyName: "pao-sub-catalog-policy"
+  - fileName: ClusterLogSubscriptionNS
+    policyName: "log-sub-ns-policy"
+  - fileName: ClusterLogSubscription
+    policyName: "log-sub-policy"
+  - fileName: ClusterLogSubscriptionOperGroup
+    policyName: "log-sub-oper-policy"

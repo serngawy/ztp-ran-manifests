@@ -2,30 +2,24 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
     name: group-du-policies-placementbinding
-    namespace: groups-ran-subscriptions
+    namespace: groups-ran-sub
 placementRef:
     name: group-du-policies-placementrule
     kind: PlacementRule
     apiGroup: apps.open-cluster-management.io
 subjects:
-    - name: group-du-autolabelns
+    - name: group-du-sriov-operconfig-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: group-du-autolabelrolebinding
+    - name: group-du-mc-sctp-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: group-du-sriovoperconfig
+    - name: group-du-mc-mount-ns-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: group-du-mcsctp
+    - name: group-du-mc-chronyd-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: group-du-mccontainermountns
-      kind: Policy
-      apiGroup: policy.open-cluster-management.io
-    - name: group-du-mcdisablechronyd
-      kind: Policy
-      apiGroup: policy.open-cluster-management.io
-    - name: group-du-ptpconfigslave
+    - name: group-du-ptp-config-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io

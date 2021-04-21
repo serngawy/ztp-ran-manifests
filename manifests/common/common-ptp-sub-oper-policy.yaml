@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: cnfde6-du-sno-sriovnetworknode-policy
-    namespace: sites-ran-subscriptions
+    name: common-ptp-sub-oper-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: cnfde6-du-sno-sriovnetworknode
+                name: common-ptp-sub-oper-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -27,19 +27,11 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
-                        apiVersion: sriovnetwork.openshift.io/v1
-                        kind: SriovNetworkNodePolicy
+                        apiVersion: operators.coreos.com/v1
+                        kind: OperatorGroup
                         metadata:
-                            name: sriov-nnp-du-mh
-                            namespace: openshift-sriov-network-operator
+                            name: ptp-operators
+                            namespace: openshift-ptp
                         spec:
-                            deviceType: vfio-pci
-                            isRdma: false
-                            nicSelector:
-                                pfNames:
-                                    - ens7f0
-                            nodeSelector:
-                                node-role.kubernetes.io/master: ""
-                            numVfs: 8
-                            priority: 10
-                            resourceName: du_mh
+                            targetNamespaces:
+                                - openshift-ptp

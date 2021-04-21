@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: group-du-sno-autolabelconfigmap-policy
-    namespace: groups-ran-subscriptions
+    name: common-ptp-sub-ns-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: group-du-sno-autolabelconfigmap
+                name: common-ptp-sub-ns-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -28,12 +28,8 @@ spec:
                     - complianceType: musthave
                       objectDefinition:
                         apiVersion: v1
-                        data:
-                            rules1.properties: |
-                                name: cnfde*
-                                labels:
-                                - node-role.kubernetes.io/master
-                        kind: ConfigMap
+                        kind: Namespace
                         metadata:
-                            name: autorules
-                            namespace: node-autolabeler
+                            labels:
+                                openshift.io/cluster-monitoring: "true"
+                            name: openshift-ptp

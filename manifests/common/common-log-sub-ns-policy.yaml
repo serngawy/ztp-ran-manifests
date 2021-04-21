@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: group-du-autolabelns-policy
-    namespace: groups-ran-subscriptions
+    name: common-log-sub-ns-policy
+    namespace: common-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: group-du-autolabelns
+                name: common-log-sub-ns-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -30,4 +30,4 @@ spec:
                         apiVersion: v1
                         kind: Namespace
                         metadata:
-                            name: node-autolabeler
+                            name: openshift-logging

@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: group-du-mcsctp-policy
-    namespace: groups-ran-subscriptions
+    name: group-du-mc-sctp-policy
+    namespace: groups-ran-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: group-du-mcsctp
+                name: group-du-mc-sctp-policy-config
             spec:
                 remediationAction: enforce
                 severity: low

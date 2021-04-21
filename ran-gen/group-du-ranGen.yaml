@@ -12,20 +12,25 @@ metadata:
     mcp: "master"
 # sourceFiles.fileName values should be same as file name in the sourcePolicies dir without .yaml extension
 sourceFiles:
-  - fileName: AutolabelNS
+#  - fileName: AutolabelNS
+#    policyName: "label-ns-policy"
+#  - fileName: AutolabelRoleBinding
+#    policyName: "label-role-policy"
+  - fileName: SriovOperatorConfig
+    policyName: "sriov-operconfig-policy"
     name: "N/A"
-  - fileName: AutolabelRoleBinding
+  - fileName: MachineConfigSctp
+    policyName: "mc-sctp-policy"
     name: "N/A"
-  - fileName: SriovOperConfig
+  - fileName: MachineConfigContainerMountNS
+    policyName: "mc-mount-ns-policy"
     name: "N/A"
-  - fileName: MCSctp
-    name: "N/A"
-  - fileName: MCContainerMountNS
-    name: "N/A"
-  - fileName: MCDisableChronyd
+  - fileName: MachineConfigDisableChronyd
+    policyName: "mc-chronyd-policy"
     name: "N/A"
   - fileName: PtpConfigSlave
-    name: "group-du-ptp-slave"
+    policyName: "ptp-config-policy"
+    name: "du-ptp-slave"
     spec:
       profile:
       - name: "slave"
