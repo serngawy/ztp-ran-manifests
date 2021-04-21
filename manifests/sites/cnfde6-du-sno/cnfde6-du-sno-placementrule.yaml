@@ -4,9 +4,9 @@ metadata:
     name: cnfde6-du-sno-placementrule
     namespace: sites-ran-sub
 spec:
-    clusterselector:
-        matchExpressions:
-            - key: sites
-              operator: In
-              values:
-                - cnfde6-du-sno
+    clusterSelector:
+      matchExpressions:
+        - key: sites
+          operator: In
+          values:
+            - cnfde6-du-sno

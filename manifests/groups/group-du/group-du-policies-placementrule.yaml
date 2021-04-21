@@ -4,7 +4,7 @@ metadata:
     name: group-du-policies-placementrule
     namespace: groups-ran-sub
 spec:
-    clusterselector:
-        matchExpressions:
-            - key: group-du
-              operator: Exists
+    clusterSelector:
+      matchExpressions:
+        - key: group-du
+          operator: Exists

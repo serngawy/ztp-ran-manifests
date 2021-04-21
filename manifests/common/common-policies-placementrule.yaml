@@ -4,9 +4,9 @@ metadata:
     name: common-policies-placementrule
     namespace: common-ran-sub
 spec:
-    clusterselector:
-        matchExpressions:
-            - key: common
-              operator: In
-              values:
-                - "true"
+    clusterSelector:
+      matchExpressions:
+        - key: common
+          operator: In
+          values:
+            - "true"
