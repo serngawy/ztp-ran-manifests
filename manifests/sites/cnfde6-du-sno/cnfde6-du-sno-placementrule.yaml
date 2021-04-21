@@ -5,8 +5,8 @@ metadata:
     namespace: sites-ran-sub
 spec:
     clusterSelector:
-      matchExpressions:
-        - key: sites
-          operator: In
-          values:
-            - cnfde6-du-sno
+        matchExpressions:
+            - key: sites
+              operator: In
+              values:
+                - cnfde6-du-sno

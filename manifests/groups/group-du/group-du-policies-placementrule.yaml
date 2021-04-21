@@ -5,6 +5,6 @@ metadata:
     namespace: groups-ran-sub
 spec:
     clusterSelector:
-      matchExpressions:
-        - key: group-du
-          operator: Exists
+        matchExpressions:
+            - key: group-du
+              operator: Exists

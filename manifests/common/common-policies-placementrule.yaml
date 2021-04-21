@@ -5,8 +5,8 @@ metadata:
     namespace: common-ran-sub
 spec:
     clusterSelector:
-      matchExpressions:
-        - key: common
-          operator: In
-          values:
-            - "true"
+        matchExpressions:
+            - key: common
+              operator: In
+              values:
+                - "true"
