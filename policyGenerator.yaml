@@ -1,8 +1,8 @@
-apiVersion: ranPolicyGenerator/v1
-kind: RanPolicyGenerator
+apiVersion: policyGenerator/v1
+kind: PolicyGenerator
 metadata:
-  name: acm-ran-policy
-  namespace: ran-policy-generator
+  name: acm-policy
+  namespace: acm-policy-generator
 # The arguments should be given and defined as below with same order --ranGenPath= --sourcePath= --outPath= --stdout
 argsOneLiner: ./ran-gen ./source-policies ./manifests true false
 

@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: common-log-sub-ns-policy
-    namespace: common-ran-sub
+    name: group-du-sno-label-configmap-policy
+    namespace: groups-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: common-log-sub-ns-policy-config
+                name: group-du-sno-label-configmap-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -28,6 +28,12 @@ spec:
                     - complianceType: musthave
                       objectDefinition:
                         apiVersion: v1
-                        kind: Namespace
+                        data:
+                            rules1.properties: |
+                                name: cnfde*
+                                labels:
+                                - node-role.kubernetes.io/master
+                        kind: ConfigMap
                         metadata:
-                            name: openshift-logging
+                            name: autorules
+                            namespace: node-autolabeler

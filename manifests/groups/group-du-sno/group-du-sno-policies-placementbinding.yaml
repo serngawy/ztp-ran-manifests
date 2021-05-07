@@ -1,49 +1,40 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-    name: common-policies-placementbinding
-    namespace: common-sub
+    name: group-du-sno-policies-placementbinding
+    namespace: groups-sub
 placementRef:
-    name: common-policies-placementrule
+    name: group-du-sno-policies-placementrule
     kind: PlacementRule
     apiGroup: apps.open-cluster-management.io
 subjects:
-    - name: common-sriov-sub-policy
+    - name: group-du-sno-label-deploy-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-sriov-sub-ns-policy
+    - name: group-du-sno-label-configmap-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-sriov-sub-oper-policy
+    - name: group-du-sno-label-ns-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-ptp-sub-policy
+    - name: group-du-sno-label-role-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-ptp-sub-ns-policy
+    - name: group-du-sno-log-forwarder-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-ptp-sub-oper-policy
+    - name: group-du-sno-log-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-pao-sub-policy
+    - name: group-du-sno-mc-sctp-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-pao-sub-ns-policy
+    - name: group-du-sno-mc-chronyd-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-pao-sub-oper-policy
+    - name: group-du-sno-ptp-config-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-pao-sub-catalog-policy
-      kind: Policy
-      apiGroup: policy.open-cluster-management.io
-    - name: common-log-sub-policy
-      kind: Policy
-      apiGroup: policy.open-cluster-management.io
-    - name: common-worker-mc-mount-ns-policy
-      kind: Policy
-      apiGroup: policy.open-cluster-management.io
-    - name: common-master-mc-mount-ns-policy
+    - name: group-du-sno-sriov-operconfig-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io

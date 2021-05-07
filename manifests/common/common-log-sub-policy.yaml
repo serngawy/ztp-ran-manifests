@@ -2,7 +2,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
     name: common-log-sub-policy
-    namespace: common-ran-sub
+    namespace: common-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -27,6 +27,12 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
+                        apiVersion: v1
+                        kind: Namespace
+                        metadata:
+                            name: openshift-logging
+                    - complianceType: musthave
+                      objectDefinition:
                         apiVersion: operators.coreos.com/v1alpha1
                         kind: Subscription
                         metadata:
@@ -37,3 +43,13 @@ spec:
                             name: cluster-logging
                             source: redhat-operators
                             sourceNamespace: openshift-marketplace
+                    - complianceType: musthave
+                      objectDefinition:
+                        apiVersion: operators.coreos.com/v1
+                        kind: OperatorGroup
+                        metadata:
+                            name: cluster-logging
+                            namespace: openshift-logging
+                        spec:
+                            targetNamespaces:
+                                - openshift-logging

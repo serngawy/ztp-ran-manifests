@@ -11,18 +11,65 @@ metadata:
     siteName: "N/A"
     # In this example we used the MCP=worker-du for group-du-sno to let the clusters that will be under group-du-sno also have the policies for group-du
     mcp: "master"
-#sourceFiles:
-#  - fileName: MachineConfigPoolSNO
-#    # For MCP policy name is used to deifne the role name and node label.
-#    # The name will be used as the NodeSelector value in other policies that is should be applied only for this MachineConfigPool
-#    name: "node-du"
-#  - fileName: AutolabelDeploy
-#    policyName: "label-deploy-policy"
-#  - fileName: AutolabelConfigMap
-#    policyName: "label-configmap-policy"
-#    data:
-#     rules1.properties: |
-#       name: cnfde*
-#       labels:
-#       - node-role.kubernetes.io/master
+sourceFiles:
+  - fileName: AutolabelDeploy
+    policyName: "label-deploy-policy"
+  - fileName: AutolabelConfigMap
+    policyName: "label-configmap-policy"
+    data:
+     rules1.properties: |
+       name: cnfde*
+       labels:
+       - node-role.kubernetes.io/master
+  - fileName: AutolabelNS
+    policyName: "label-ns-policy"
+  - fileName: AutolabelRoleBinding
+    policyName: "label-role-policy"
+  # Set ClusterLogForwarder & ClusterLogging as example might be better to create another policyTemp-Group
+  - fileName: ClusterLogForwarder
+    policyName: "log-forwarder-policy"
+    spec:
+      outputs:
+        - type: "kafka"
+          name: kafka-open
+          # below url is an example
+          url: tcp://10.46.55.190:9092/test
+      pipelines:
+        - name: audit-logs
+          inputRefs:
+           - audit
+          outputRefs:
+           - kafka-open
+        - name: infrastructure-logs
+          inputRefs:
+           - infrastructure
+          outputRefs:
+           - kafka-open
+  - fileName: ClusterLogging
+    policyName: "log-policy"
+    spec:
+      curation:
+        curator:
+          schedule: "30 3 * * *"
+      collection:
+        logs:
+          type: "fluentd"
+          fluentd: {}
+  - fileName: MachineConfigSctp
+    policyName: "mc-sctp-policy"
+    labels:
+      machineconfiguration.openshift.io/role: master
+  - fileName: MachineConfigDisableChronyd
+    policyName: "mc-chronyd-policy"
+  - fileName: PtpConfigSlave
+    policyName: "ptp-config-policy"
+    name: "du-ptp-slave"
+    spec:
+      profile:
+      - name: "slave"
+        interface: "ens5f0"
+        ptp4lOpts: "-2 -s --summary_interval -4"
+        phc2sysOpts: "-a -r -n 24"
+  - fileName: SriovOperatorConfig
+    policyName: "sriov-operconfig-policy"
 

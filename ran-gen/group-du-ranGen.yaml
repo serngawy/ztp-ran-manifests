@@ -9,32 +9,8 @@ metadata:
     common: false
     groupName: "group-du"
     siteName: "N/A"
-    mcp: "master"
+    mcp: "worker-du"
 # sourceFiles.fileName values should be same as file name in the sourcePolicies dir without .yaml extension
 sourceFiles:
-#  - fileName: AutolabelNS
-#    policyName: "label-ns-policy"
-#  - fileName: AutolabelRoleBinding
-#    policyName: "label-role-policy"
-  - fileName: SriovOperatorConfig
-    policyName: "sriov-operconfig-policy"
-    name: "N/A"
-  - fileName: MachineConfigSctp
-    policyName: "mc-sctp-policy"
-    name: "N/A"
-  - fileName: MachineConfigContainerMountNS
-    policyName: "mc-mount-ns-policy"
-    name: "N/A"
-  - fileName: MachineConfigDisableChronyd
-    policyName: "mc-chronyd-policy"
-    name: "N/A"
-  - fileName: PtpConfigSlave
-    policyName: "ptp-config-policy"
-    name: "du-ptp-slave"
-    spec:
-      profile:
-      - name: "slave"
-        interface: "ens5f0"
-        ptp4lOpts: "-2 -s --summary_interval -4"
-        phc2sysOpts: "-a -r -n 24"
-
+  - fileName: MCP-worker-du
+    policyName: "mcp-worker-du-policy"

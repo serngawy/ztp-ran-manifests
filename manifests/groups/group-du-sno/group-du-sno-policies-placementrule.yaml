@@ -1,10 +1,10 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-    name: group-du-policies-placementrule
+    name: group-du-sno-policies-placementrule
     namespace: groups-sub
 spec:
     clusterSelector:
         matchExpressions:
-            - key: group-du
+            - key: group-du-sno
               operator: Exists

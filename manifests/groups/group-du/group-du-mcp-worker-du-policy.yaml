@@ -1,8 +1,8 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
-    name: group-du-sriov-operconfig-policy
-    namespace: groups-ran-sub
+    name: group-du-mcp-worker-du-policy
+    namespace: groups-sub
     annotations:
         policy.open-cluster-management.io/categories: CM Configuration Management
         policy.open-cluster-management.io/controls: CM-2 Baseline Configuration
@@ -15,7 +15,7 @@ spec:
             apiVersion: policy.open-cluster-management.io/v1
             kind: ConfigurationPolicy
             metadata:
-                name: group-du-sriov-operconfig-policy-config
+                name: group-du-mcp-worker-du-policy-config
             spec:
                 remediationAction: enforce
                 severity: low
@@ -27,13 +27,20 @@ spec:
                 object-templates:
                     - complianceType: musthave
                       objectDefinition:
-                        apiVersion: sriovnetwork.openshift.io/v1
-                        kind: SriovOperatorConfig
+                        apiVersion: machineconfiguration.openshift.io/v1
+                        kind: MachineConfigPool
                         metadata:
-                            name: default
-                            namespace: openshift-sriov-network-operator
+                            labels:
+                                machineconfiguration.openshift.io/role: worker-du
+                            name: worker-du
                         spec:
-                            configDaemonNodeSelector:
-                                node-role.kubernetes.io/master: ""
-                            enableInjector: true
-                            enableOperatorWebhook: true
+                            machineConfigSelector:
+                                matchExpressions:
+                                    - key: machineconfiguration.openshift.io/role
+                                      operator: In
+                                      values:
+                                        - worker
+                                        - worker-du
+                            nodeSelector:
+                                matchLabels:
+                                    node-role.kubernetes.io/worker-du: ""
