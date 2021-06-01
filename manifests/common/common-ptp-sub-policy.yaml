@@ -33,7 +33,6 @@ spec:
                             labels:
                                 openshift.io/cluster-monitoring: "true"
                             name: openshift-ptp
-                object-templates:
                     - complianceType: musthave
                       objectDefinition:
                         apiVersion: operators.coreos.com/v1
@@ -44,7 +43,6 @@ spec:
                         spec:
                             targetNamespaces:
                                 - openshift-ptp
-                object-templates:
                     - complianceType: musthave
                       objectDefinition:
                         apiVersion: operators.coreos.com/v1alpha1

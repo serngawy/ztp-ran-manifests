@@ -33,7 +33,6 @@ spec:
                             labels:
                                 openshift.io/run-level: "1"
                             name: openshift-sriov-network-operator
-                object-templates:
                     - complianceType: musthave
                       objectDefinition:
                         apiVersion: operators.coreos.com/v1
@@ -44,7 +43,6 @@ spec:
                         spec:
                             targetNamespaces:
                                 - openshift-sriov-network-operator
-                object-templates:
                     - complianceType: musthave
                       objectDefinition:
                         apiVersion: operators.coreos.com/v1alpha1
