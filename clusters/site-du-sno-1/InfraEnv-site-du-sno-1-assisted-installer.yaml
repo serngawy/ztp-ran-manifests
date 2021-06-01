@@ -1,0 +1,15 @@
+apiVersion: agent-install.openshift.io/v1beta1
+kind: InfraEnv
+metadata:
+    name: site-du-sno-1
+    namespace: site-du-sno-1
+spec:
+    agentLabelSelector:
+        matchLabels:
+            cluster-name: site-du-sno-1
+    clusterRef:
+        name: site-du-sno-1
+        namespace: site-du-sno-1
+    pullSecretRef:
+        name: assisted-deployment-pull-secret
+    sshAuthorizedKey: 'ssh-rsa '

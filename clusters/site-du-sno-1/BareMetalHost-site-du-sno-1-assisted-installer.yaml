@@ -1,0 +1,18 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+    annotations:
+        inspect.metal3.io: disabled
+    labels:
+        infraenvs.agent-install.openshift.io: site-du-sno-1
+    name: site-du-sno-1
+    namespace: site-du-sno-1
+spec:
+    automatedCleaningMode: disabled
+    bmc:
+        address: idrac-virtualmedia+https://10.16.231.87/redfish/v1/Systems/System.Embedded.1
+        credentialsName: site-du-sno-1-bmc-secret
+        disableCertificateVerification: true
+    bootMACAddress: f4:02:70:e5:10:48
+    bootMode: UEFI
+    online: true

@@ -1,0 +1,21 @@
+apiVersion: hive.openshift.io/v1
+kind: ClusterDeployment
+metadata:
+    name: site-du-sno-1
+    namespace: site-du-sno-1
+spec:
+    baseDomain: ptp.lab.eng.bos.redhat.com
+    clusterInstallRef:
+        group: extensions.hive.openshift.io
+        kind: AgentClusterInstall
+        name: site-du-sno-1
+        version: v1beta1
+    clusterName: site-du-sno-1
+    installed: false
+    platform:
+        agentBareMetal:
+            agentSelector:
+                matchLabels:
+                    cluster-name: site-du-sno-1
+    pullSecretRef:
+        name: assisted-deployment-pull-secret

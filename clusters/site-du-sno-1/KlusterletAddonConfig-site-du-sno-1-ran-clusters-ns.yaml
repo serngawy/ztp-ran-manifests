@@ -1,0 +1,21 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+    name: site-du-sno-1
+    namespace: site-du-sno-1
+spec:
+    applicationManager:
+        enabled: true
+    certPolicyController:
+        enabled: true
+    clusterLabels:
+        cloud: auto-detect
+        vendor: auto-detect
+    clusterName: site-du-sno-1
+    clusterNamespace: site-du-sno-1
+    iamPolicyController:
+        enabled: true
+    policyController:
+        enabled: true
+    searchCollector:
+        enabled: true

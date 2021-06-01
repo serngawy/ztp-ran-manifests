@@ -1,28 +1,25 @@
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
 metadata:
-    name: common-policies-placementbinding
-    namespace: common-sub
+    name: site-du-sno-1-policies-placementbinding
+    namespace: sites-sub
 placementRef:
-    name: common-policies-placementrule
+    name: site-du-sno-1-policies-placementrule
     kind: PlacementRule
     apiGroup: apps.open-cluster-management.io
 subjects:
-    - name: common-sriov-sub-policy
+    - name: site-du-sno-1-sriov-nw-fh-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-ptp-sub-policy
+    - name: site-du-sno-1-sriov-nnp-fh-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-pao-sub-policy
+    - name: site-du-sno-1-sriov-nw-mh-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-log-sub-policy
+    - name: site-du-sno-1-sriov-nnp-mh-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io
-    - name: common-worker-mc-mount-ns-policy
-      kind: Policy
-      apiGroup: policy.open-cluster-management.io
-    - name: common-master-mc-mount-ns-policy
+    - name: site-du-sno-1-perfprofile-policy
       kind: Policy
       apiGroup: policy.open-cluster-management.io

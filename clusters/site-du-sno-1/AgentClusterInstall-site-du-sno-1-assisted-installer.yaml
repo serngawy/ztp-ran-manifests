@@ -1,0 +1,22 @@
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+    name: site-du-sno-1
+    namespace: site-du-sno-1
+spec:
+    clusterDeploymentRef:
+        name: site-du-sno-1
+    imageSetRef:
+        name: openshift-v4.8.0
+    networking:
+        clusterNetwork:
+            - cidr: 10.128.0.0/14
+              hostPrefix: 23
+        machineNetwork:
+            - cidr: 10.16.231.0/24
+        networkType: OVNKubernetes
+        serviceNetwork:
+            - 172.30.0.0/16
+    provisionRequirements:
+        controlPlaneAgents: 1
+    sshPublicKey: 'ssh-rsa '
