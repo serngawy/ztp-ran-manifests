@@ -1,14 +1,9 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: site-plan-sno-du
----
 apiVersion: ran.openshift.io/v1
 kind: SiteConfig
 metadata:
   name: "site-plan-sno-du-ex"
-  namespace: "site-plan-sno-du"
+  namespace: "clusters-sub"
 spec:
   baseDomain: "example.com"
   pullSecretRef:
