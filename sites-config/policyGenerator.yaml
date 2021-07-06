@@ -1,0 +1,7 @@
+apiVersion: policyGenerator/v1
+kind: PolicyGenerator
+metadata:
+  name: clusters-config
+  namespace: clusters-sub
+# The arguments should be given and defined as below with same order --siteConfigPath= --sourcePath= --outPath= --stdout --customResources --siteconfig
+argsOneLiner: ./siteConfigExamples ./source-cluster-crs /temp true false true
