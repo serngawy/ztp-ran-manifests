@@ -34,7 +34,7 @@ spec:
     ignitionConfigOverride: "igen"
     nodes:
       - hostName: "node1"
-        bmcAddress: "redfish-virtualmedia+https://10.16.21.87/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "redfish-virtualmedia+https://10.16.121.87/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "bmcSecret-du-sno1"
         bootMACAddress: "00:00:00:01:20:30"
