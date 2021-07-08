@@ -1,0 +1,70 @@
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "cnfde3"
+  namespace: "clusters-sub"
+spec:
+  baseDomain: "ptp.lab.eng.bos.redhat.com"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret"
+  clusterImageSetNameRef: "openshift-v4.8.0"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDF+ZBgu4jf118/efJk1l6BNbdlfl4/Zf06KX0GfURVi82LTcIxTwEh4NP7yO++TqZXmvp5HtiuW2L71xV8Te/EtUC5MnjjzANsKPUYu2vlGo/Un9q9+I/r/CTZ+/fSmVj/LUPVxq+EV5LrYNcqIlUVa+bDWGKK4IAzw2rCr664C7KV/Mf5Of3+6fapkshN3S80UZ4GuHBn5shZpuGr8iWLWaxja3i4m3Iss+w7O70sDaCNHD85ZLboLaP+Vrwbe17MlkYiNp3P77d7wuILPsSuWvvwFq6fXWCL5YwGgqA/V3x2ZY9cWGlltGJrWvPLNE0yTchg04vzAm1PkGWVE4yfzhbPYH7YrLljmVp0LhBRtrw6bHfFZsIgER8P5KLRRNrszsj5PUMIiRzwlG9j/ovu4ynWNYAtU3KFSpEgudyK18ax68nkTKyMdZoPDbuYsz02gl5N0fpVMTydCHPIas0a4UDvw0z6bBybMvLXn+yqAPdL9vDgbhLpAfAq4R2dQNs= kni@cnfde2.ptp.lab.eng.bos.redhat.com"
+  clusters:
+  - clusterName: "cnfde3"
+    clusterType: sno
+    clusterProfile: du
+    clusterLabels:
+      group-du-sno: ""
+      common: true
+      sites : cnfde3
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 10.16.231.0/24
+    serviceNetwork:
+      - 172.30.0.0/16
+    ignitionConfigOverride: '{"ignition": {"version": "3.1.0"}, "storage": {"files": [{"path": "/etc/containers/registries.conf", "contents": {"source": "data:text/plain;base64,W1tyZWdpc3RyeV1dIHByZWZpeCA9ICIiIGxvY2F0aW9uID0gInJlZ2lzdHJ5LnJlZGhhdC5pby9yaGFjbTIiIG1pcnJvci1ieS1kaWdlc3Qtb25seSA9IGZhbHNlIFtbcmVnaXN0cnkubWlycm9yXV0gbG9jYXRpb24gPSAicXVheS5pbzo0NDMvYWNtLWQiIFtbcmVnaXN0cnldXSBsb2NhdGlvbiA9ICJxdWF5LmlvL29wZW5zaGlmdC1yZWxlYXNlLWRldi9vY3AtcmVsZWFzZSIgaW5zZWN1cmUgPSBmYWxzZSBtaXJyb3ItYnktZGlnZXN0LW9ubHkgPSB0cnVl"}}]}}'
+    nodes:
+      - hostName: "cnfde3.ptp.lab.eng.bos.redhat.com"
+        bmcAddress: "idrac-virtualmedia+https://10.16.231.87/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "cnfde3-bmc-secret"
+        bootMACAddress: "0C:42:A1:8A:59:9C"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          hctl: "1:2:0:0"
+        cpuset: "0-1,40-41"
+        nodeNetwork:
+          interfaces:
+            - name: eno1
+              macAddress: 0C:42:A1:8A:59:9C"
+          config:
+            interfaces:
+              - name: eno1
+                macAddress: "00:00:00:01:20:30"
+                type: ethernet
+                ipv4:
+                  enabled: true
+                  dhcp: false
+                  address:
+                  - 10.16.231.3/24
+                  - 10.16.231.28/24
+                  - 10.16.231.31/24
+                ipv6:
+                  enabled: true
+                  dhcp: false
+                  address:
+                  - "2620:52:0:10e7:e42:a1ff:fe8a:601/64"
+                  - "2620:52:0:10e7:e42:a1ff:fe8a:602/64"
+                  - "2620:52:0:10e7:e42:a1ff:fe8a:603/64"
+            dns-resolver:
+              config:
+                server:
+                  - 10.19.42.41
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-address: 10.16.231.254
+                  next-hop-interface: eno1
+                  table-id: 254
